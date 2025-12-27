@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Contribuir - RPGs PT-BR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d1b2a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #0d1b2a;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #444;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #0d1b2a;
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0d1b2a;
+        }
+        
+        h3 {
+            color: #1a3a52;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        ul {
+            color: #333;
+            line-height: 1.8;
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .code-block {
+            background: #2a2a2a;
+            color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            border-left: 4px solid #0d1b2a;
+        }
+        
+        .highlight {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #0d1b2a;
+            margin: 15px 0;
+        }
+        
+        .highlight strong {
+            color: #0d1b2a;
+        }
+        
+        .step {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #0d1b2a;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #0d1b2a;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .step-title {
+            color: #0d1b2a;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: #1f5aa5;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #2a6fbf;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #0d1b2a;
+            color: white;
+            border-radius: 5px;
+            text-decoration: underline;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #1a3a52;
+            text-decoration: underline;
+        }
+        
+        .folder-structure {
+            background: #2a2a2a;
+            color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #0d1b2a;
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            h3 {
+                font-size: 16px;
+            }
+            
+            .code-block,
+            .folder-structure {
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+            
+            p, li {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Como Contribuir</h1>
+        <p class="subtitle">Colabore colocando seus RPGs e ajude a construir o maior acervo de jogos de RPG em português do Brasil! Compartilhe seus sistemas favoritos, fichas personalizadas e materiais traduzidos. Juntos, fazemos a comunidade de RPG brasileira crescer ainda mais forte! 🎲✨</p>
+        
+        <div class="section">
+            <h2>Opções de Contribuição</h2>
+            <p>Existem várias formas de contribuir. Escolha a que for mais fácil para você:</p>
+        </div>
+        
+        <div class="section">
+            <h2>Opção 1️⃣ - A Forma Mais Fácil (Sem Git)</h2>
+            <p>Se você não quer mexer com Git ou GitHub, pode usar a interface web do GitHub diretamente!</p>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-title">Acesse o Repositório</div>
+                <p>Vá até <a href="https://github.com/Ewerton-Jose/RPGs-PT-BR" target="_blank">o repositório no GitHub</a></p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-title">Faça um Fork</div>
+                <p>Clique em "Fork" no canto superior direito. Você terá sua própria cópia do repositório.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-title">Navegue até a Pasta Correta</div>
+                <p>Abra a pasta "livros e fichas pdf" no seu fork</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <div class="step-title">Crie uma Nova Pasta</div>
+                <p>Clique em "Add file" → "Create new file"</p>
+                <p>Na caixa de nome do arquivo, escreva: <code>nome-do-meu-rpg/novoarquivo.txt</code></p>
+                <p>Isso criará uma pasta automaticamente! Clique em "Commit changes"</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <div class="step-title">Upload dos Arquivos</div>
+                <p>Clique em "Upload files" na sua pasta criada e selecione os arquivos do seu RPG (PDFs, fichas, etc)</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">6</span>
+                <div class="step-title">Faça uma Pull Request</div>
+                <p>Volta para seu fork e clique em "Contribute" → "Open pull request"</p>
+                <p>Descreva o RPG que você adicionou e pronto! 🎉</p>
+            </div>
+            
+            <div class="highlight">
+                <strong>✨ Vantagem:</strong> Você não precisa aprender Git nem instalar nada! Tudo funciona direto no navegador.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Opção 2️⃣ - Usando Git (Para Usuários Avançados)</h2>
+            <p>Se você já conhece Git ou quer aprender, pode usar a linha de comando:</p>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-title">Faça um Fork</div>
+                <p>Vá até <a href="https://github.com/Ewerton-Jose/RPGs-PT-BR" target="_blank">o repositório</a> e clique em "Fork"</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-title">Clone o Repositório</div>
+                <div class="code-block">git clone https://github.com/Ewerton-Jose/RPGs-PT-BR.git
+cd RPGs-PT-BR</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-title">Configure o Git LFS (Importante!)</div>
+                <p>Como os PDFs são arquivos grandes, o repositório usa Git LFS (Large File Storage). Você precisa instalá-lo e configurá-lo:</p>
+                <div class="code-block"># Instale o Git LFS (se ainda não tiver)
+# Ubuntu/Debian:
+sudo apt-get install git-lfs
+
+# macOS:
+brew install git-lfs
+
+# Windows: baixe de https://git-lfs.github.com/
+
+# Configure o LFS no repositório
+git lfs install
+git lfs track "*.pdf"</div>
+                <div class="highlight">
+                    <strong>💡 Por que LFS?</strong> PDFs e arquivos grandes podem ultrapassar 100MB, e o Git LFS permite que eles sejam versionados sem sobrecarregar o repositório.
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <div class="step-title">Organize Seus Arquivos</div>
+                <p>Dentro de "livros e fichas pdf", crie uma pasta com o nome do seu RPG e coloque os arquivos lá:</p>
+                <div class="code-block">mkdir "livros e fichas pdf/meu-rpg"
+# Copie seus arquivos para essa pasta</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <div class="step-title">Faça o Commit e Push</div>
+                <div class="code-block">git add .
+git commit -m "Adiciona RPG [Nome]"
+git push origin main</div>
+                <p><strong>Nota:</strong> O Git LFS cuidará automaticamente dos arquivos grandes durante o push!</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">6</span>
+                <div class="step-title">Crie uma Pull Request</div>
+                <p>Seu fork pedirá para criar uma pull request. Clique e descreva o RPG adicionado!</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Estrutura do Repositório</h2>
+            <p>Entenda como os arquivos são organizados:</p>
+            <div class="folder-structure">livros e fichas pdf/
+├── 3dt/
+├── chacal_rpg_lobsomen/
+├── d&d5e/
+├── jujutsu_versao_2.0/
+├── skyfall_final/
+└── [nome do seu RPG]/
+    ├── arquivo-principal.pdf
+    ├── ficha.pdf
+    └── ficha_editavel.txt
+
+tokens e mapas/
+├── [materiais adicionais]
+            </div>
+            <p><strong>Regra importante:</strong> Crie uma pasta com o nome do RPG dentro de "livros e fichas pdf" e coloque os arquivos lá dentro.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Normalizando os Nomes das Pastas</h2>
+            <p>Para manter o repositório organizado, use as seguintes convenções para nomes de pastas:</p>
+            <ul>
+                <li>Use letras minúsculas</li>
+                <li>Substitua espaços por underscores (_)</li>
+                <li>Use hífens (-) para separar palavras quando apropriado</li>
+                <li>Exemplos: <code>d20_sistema</code>, <code>jujutsu_versao_2.0</code>, <code>meu_rpg_favorito</code></li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Tipos de Arquivos Aceitos</h2>
+            <ul>
+                <li><strong>PDFs:</strong> Manuais, regras, suplementos</li>
+                <li><strong>TXT/Markdown:</strong> Fichas editáveis em texto simples</li>
+                <li><strong>Imagens:</strong> Referências visuais (PNG, JPG)</li>
+                <li><strong>Fichas editáveis:</strong> Documentos em vários formatos</li>
+            </ul>
+            <div class="highlight">
+                <strong>⚠️ Importante:</strong> Respeite os direitos autorais! Apenas adicione materiais que você possui permissão para compartilhar ou que estejam sob licenças de compartilhamento.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Precisa de Ajuda?</h2>
+            <ul>
+                <li>Consulte a <a href="https://docs.github.com/pt/get-started/quickstart/fork-a-repo" target="_blank">documentação do GitHub sobre Forks</a></li>
+                <li>Veja o <a href="https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request" target="_blank">guia de Pull Requests</a></li>
+                <li>Abra uma issue no repositório descrevendo sua dúvida</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Obrigado! 🎉</h2>
+            <p>Agradeço imensamente a sua contribuição para este acervo de RPGs em português! Cada novo RPG adicionado enriquece nossa coleção e ajuda a comunidade a descobrir novos jogos incríveis.</p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Voltar ao Índice</a>
+    </div>
+</body>
+</html>

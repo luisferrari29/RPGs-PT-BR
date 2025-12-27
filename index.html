@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de RPGs - PDFs e TXTs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d1b2a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #0d1b2a;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #444;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .stats {
+            display: none;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0d1b2a;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .tree {
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: #333;
+        }
+        
+        .tree-item {
+            display: flex;
+            align-items: center;
+            padding: 4px 0;
+        }
+        
+        .tree-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            user-select: none;
+            color: #0d1b2a;
+            font-weight: bold;
+        }
+        
+        .tree-toggle:hover {
+            color: #1a3a52;
+        }
+        
+        .tree-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+        
+        .folder-icon {
+            color: #ffa500;
+        }
+        
+        .file-icon {
+            color: #666;
+        }
+        
+        .pdf-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .txt-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .file-link {
+            color: #0d1b2a;
+            text-decoration: none;
+            cursor: pointer;
+            word-break: break-word;
+        }
+        
+        .file-link:hover {
+            text-decoration: underline;
+            color: #1a3a52;
+        }
+        
+        .folder {
+            margin-left: 20px;
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .folder.collapsed {
+            max-height: 0;
+        }
+        
+        .folder-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .contribute-btn {
+            display: inline-block;
+            margin: 15px 0;
+            padding: 6px 16px;
+            background: #0d1b2a;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+        
+        .contribute-btn:hover {
+            background: #1a3a52;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+            }
+            
+            .tree {
+                font-size: 12px;
+            }
+            
+            .tree-content {
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+            
+            .file-link {
+                flex: 1;
+                min-width: 0;
+            }
+            
+            .pdf-badge,
+            .txt-badge {
+                margin-left: 0;
+                flex-shrink: 0;
+            }
+            
+            .contribute-btn {
+                font-size: 12px;
+                padding: 5px 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .tree {
+                font-size: 13px;
+            }
+            
+            .folder {
+                margin-left: 10px;
+            }
+            
+            body {
+                padding: 10px;
+            }
+            
+            .contribute-btn {
+                font-size: 11px;
+                padding: 5px 12px;
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Índice de RPGs - PT-BR</h1>
+        <p class="subtitle">Visualize todos os PDFs e TXTs do repositório</p>
+        
+        <a href="como-contribuir.html" class="contribute-btn">➕ Contribuir com um RPG</a>
+        
+        <div class="tree" id="tree-root"></div>
+    </div>
+    
+    <script>
+        const treeData = {"name": "RPGs-PT-BR", "type": "folder", "children": [{"name": "livros e fichas pdf", "type": "folder", "children": [{"name": "3dt", "type": "folder", "children": [{"name": "15810135685e3c5a403ac203dt-alpha-manual-revisado-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/15810135685e3c5a403ac203dt-alpha-manual-revisado-biblioteca-elfica.pdf"}, {"name": "3DeT_ficha.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/3DeT_ficha.pdf"}, {"name": "3dt-alpha-dragon-ball-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/3dt-alpha-dragon-ball-biblioteca-elfica.pdf"}, {"name": "3dt-alpha-hunter-x-hunter-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/3dt-alpha-hunter-x-hunter-biblioteca-elfica.pdf"}, {"name": "3dt-alpha-manual-das-vantagens-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/3dt-alpha-manual-das-vantagens-biblioteca-elfica.pdf"}, {"name": "DB #166 - Demon Slayer.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/DB #166 - Demon Slayer.pdf"}, {"name": "DB #172 - Maldi\u0417\u0444es.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/DB #172 - Maldi\u0417\u0444es.pdf"}, {"name": "DB #185 - Novas ra\u0417as, Talentos e Ganchos de Aventura.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/DB #185 - Novas ra\u0417as, Talentos e Ganchos de Aventura.pdf"}, {"name": "Manual-3DeT-Victory-Playtest.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/Manual-3DeT-Victory-Playtest.pdf"}, {"name": "Revista-Tokyo-Defender-012-218.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/Revista-Tokyo-Defender-012-218.pdf"}, {"name": "Revista-Tokyo-Defender-012.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/Revista-Tokyo-Defender-012.pdf"}, {"name": "dragao-brasil-147-uma-porrada-so_compress.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/3dt/dragao-brasil-147-uma-porrada-so_compress.pdf"}]}, {"name": "RPG_Xman", "type": "folder", "children": [{"name": "Ficha.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/RPG_Xman/Ficha.pdf"}, {"name": "RPG XMAN.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/RPG_Xman/RPG XMAN.pdf"}]}, {"name": "Reaching_horizons", "type": "folder", "children": [{"name": "Reaching horizons.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/Reaching_horizons/Reaching horizons.pdf"}, {"name": "ficha.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/Reaching_horizons/ficha.pdf"}]}, {"name": "chacal_rpg_lobsomen", "type": "folder", "children": [{"name": "chacal-ficha.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/chacal_rpg_lobsomen/chacal-ficha.pdf"}, {"name": "chacal-licantropia-rpg.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/chacal_rpg_lobsomen/chacal-licantropia-rpg.pdf"}, {"name": "ficha-editavel-chacal.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/chacal_rpg_lobsomen/ficha-editavel-chacal.pdf"}]}, {"name": "d&d5e", "type": "folder", "children": [{"name": "dd-5e-guia-do-mestre-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/d&d5e/dd-5e-guia-do-mestre-biblioteca-elfica.pdf"}, {"name": "dd-5e-livro-do-jogador-fundo-branco-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/d&d5e/dd-5e-livro-do-jogador-fundo-branco-biblioteca-elfica.pdf"}, {"name": "dd-5e-manual-dos-monstros-dd-beyond-2-1-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/d&d5e/dd-5e-manual-dos-monstros-dd-beyond-2-1-biblioteca-elfica.pdf"}, {"name": "old-dd-5e-manual-dos-monstros-biblioteca-elfica.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/d&d5e/old-dd-5e-manual-dos-monstros-biblioteca-elfica.pdf"}]}, {"name": "fouragainstdarkness", "type": "folder", "children": [{"name": "FOURAGAINSTDARKNESS_-_RP4AD-0001e_-_LIVRODEREGRAS+INIMIGOSDIABOLICOS(0.3B) (1).pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/fouragainstdarkness/FOURAGAINSTDARKNESS_-_RP4AD-0001e_-_LIVRODEREGRAS+INIMIGOSDIABOLICOS(0.3B) (1).pdf"}]}, {"name": "jujutsu_versao_2.0", "type": "folder", "children": [{"name": "Feiticeiros e Maldi\u0417\u0444es - Enciclop\u0412dia Amaldi\u0417oada v0.9.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/jujutsu_versao_2.0/Feiticeiros e Maldi\u0417\u0444es - Enciclop\u0412dia Amaldi\u0417oada v0.9.pdf"}, {"name": "Feiticeiros e Maldi\u0417\u0444es - Grim\u0432rio das Maldi\u0417\u0444es v0.6.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/jujutsu_versao_2.0/Feiticeiros e Maldi\u0417\u0444es - Grim\u0432rio das Maldi\u0417\u0444es v0.6.pdf"}, {"name": "Feiticeiros e Maldi\u0417\u0444es - Guia do Narrador v0.4.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/jujutsu_versao_2.0/Feiticeiros e Maldi\u0417\u0444es - Guia do Narrador v0.4.pdf"}, {"name": "Feiticeiros e Maldi\u0417\u0444es - Livro B\u0430sico v2.0.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/jujutsu_versao_2.0/Feiticeiros e Maldi\u0417\u0444es - Livro B\u0430sico v2.0.pdf"}, {"name": "ficha_editavel.txt", "type": "file", "extension": "txt", "path": "livros e fichas pdf/jujutsu_versao_2.0/ficha_editavel.txt"}]}, {"name": "mazerats", "type": "folder", "children": [{"name": "477729516-JMZ001-Maze-Rats-Basico-pdf.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/mazerats/477729516-JMZ001-Maze-Rats-Basico-pdf.pdf"}]}, {"name": "rpg_basico", "type": "folder", "children": [{"name": "o-guia-definitivo-de-rpg.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/rpg_basico/o-guia-definitivo-de-rpg.pdf"}, {"name": "tabelas-oraculo.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/rpg_basico/tabelas-oraculo.pdf"}]}, {"name": "rpg_pokemon(nao_finalizado)", "type": "folder", "children": [{"name": "Regrinhas_ihuu.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/rpg_pokemon(nao_finalizado)/Regrinhas_ihuu.pdf"}]}, {"name": "skyfall_final", "type": "folder", "children": [{"name": "SKYFALL RPG.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/skyfall_final/SKYFALL RPG.pdf"}]}, {"name": "skyfall_versoes_playtest", "type": "folder", "children": [{"name": "Ficha Skyfall Playtest 0.6 (Vers\u255eo 4) EDIT\u2561VEL.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/skyfall_versoes_playtest/Ficha Skyfall Playtest 0.6 (Vers\u255eo 4) EDIT\u2561VEL.pdf"}, {"name": "Skyfall - Playtest 0.6 (Vers\u255eo Apoiadores) - FINAL.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/skyfall_versoes_playtest/Skyfall - Playtest 0.6 (Vers\u255eo Apoiadores) - FINAL.pdf"}, {"name": "Skyfall RPG - Playtest 0.7 (Vers\u255eo Apoiadores) (1).pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/skyfall_versoes_playtest/Skyfall RPG - Playtest 0.7 (Vers\u255eo Apoiadores) (1).pdf"}, {"name": "Skyfall_Fastplay_0.8.pdf", "type": "file", "extension": "pdf", "path": "livros e fichas pdf/skyfall_versoes_playtest/Skyfall_Fastplay_0.8.pdf"}]}]}, {"name": "tokens e mapas", "type": "folder", "children": []}]};
+        
+        let pdfCount = 0;
+        let txtCount = 0;
+        
+        function renderTree(node, container, isRoot = false) {
+            const item = document.createElement('div');
+            item.className = 'tree-item';
+            
+            if (node.type === 'folder' && node.children.length > 0) {
+                const toggle = document.createElement('div');
+                toggle.className = 'tree-toggle';
+                toggle.textContent = '▼';
+                toggle.style.cursor = 'pointer';
+                
+                const content = document.createElement('div');
+                content.className = 'tree-content';
+                
+                const icon = document.createElement('span');
+                icon.className = 'folder-icon';
+                icon.textContent = '📁';
+                
+                const name = document.createElement('span');
+                name.className = 'folder-name';
+                name.textContent = node.name;
+                
+                content.appendChild(icon);
+                content.appendChild(name);
+                
+                item.appendChild(toggle);
+                item.appendChild(content);
+                
+                const folder = document.createElement('div');
+                folder.className = 'folder';
+                
+                let collapsed = !isRoot;
+                
+                toggle.addEventListener('click', () => {
+                    collapsed = !collapsed;
+                    folder.classList.toggle('collapsed');
+                    toggle.textContent = collapsed ? '▶' : '▼';
+                });
+                
+                if (collapsed && !isRoot) {
+                    folder.classList.add('collapsed');
+                    toggle.textContent = '▶';
+                }
+                
+                node.children.forEach(child => {
+                    renderTree(child, folder);
+                });
+                
+                container.appendChild(item);
+                container.appendChild(folder);
+            } else if (node.type === 'file') {
+                const toggle = document.createElement('div');
+                toggle.className = 'tree-toggle';
+                toggle.textContent = '';
+                toggle.style.cursor = 'default';
+                
+                const content = document.createElement('div');
+                content.className = 'tree-content';
+                
+                const icon = document.createElement('span');
+                icon.className = 'file-icon';
+                icon.textContent = '📄';
+                
+                const link = document.createElement('a');
+                link.className = 'file-link';
+                link.href = node.path;
+                link.textContent = node.name;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                
+                const badge = document.createElement('span');
+                badge.className = node.extension === 'pdf' ? 'pdf-badge' : 'txt-badge';
+                badge.textContent = node.extension.toUpperCase();
+                
+                if (node.extension === 'pdf') {
+                    pdfCount++;
+                } else {
+                    txtCount++;
+                }
+                
+                content.appendChild(icon);
+                content.appendChild(link);
+                content.appendChild(badge);
+                
+                item.appendChild(toggle);
+                item.appendChild(content);
+                
+                container.appendChild(item);
+            } else if (node.type === 'folder' && node.children.length === 0) {
+                // Pasta vazia, não renderizar
+                return;
+            }
+        }
+        
+        const root = document.getElementById('tree-root');
+        renderTree(treeData, root, true);
+        
+        document.getElementById('pdf-count').textContent = pdfCount;
+        document.getElementById('txt-count').textContent = txtCount;
+        document.getElementById('total-count').textContent = pdfCount + txtCount;
+    </script>
+</body>
+</html>
